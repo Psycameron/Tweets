@@ -10,21 +10,19 @@ import {
 
 export default function UsersList({ users }) {
   return (
-    <ul>
+    <List>
       {users.map(({ id, user, tweets, followers, avatar }) => {
         return (
-          <List>
-            <Item key={id}>
-              <AvatarWrapper>
-                <Avatar src={avatar} alt={user} />
-              </AvatarWrapper>
-              <Text>{tweets} TWEETS</Text>
-              <Text>{followers} FOLLOWERS</Text>
-              <Button>FOLLOW</Button>
-            </Item>
-          </List>
+          <Item key={id}>
+            <AvatarWrapper>
+              <Avatar src={avatar} alt={user} />
+            </AvatarWrapper>
+            <Text>{tweets} TWEETS</Text>
+            <Text>{followers} FOLLOWERS</Text>
+            <Button>FOLLOW</Button>
+          </Item>
         );
       })}
-    </ul>
+    </List>
   );
 }
