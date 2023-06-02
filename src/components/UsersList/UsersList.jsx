@@ -1,9 +1,5 @@
-// import { useState } from "react";
-
 import LogoGoIT from "images/svg/Logo_GoIT.svg";
 import Background from "images/picture2 1.png";
-
-// import { updateUser } from "services/api";
 
 import {
   Avatar,

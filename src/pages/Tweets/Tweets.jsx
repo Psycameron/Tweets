@@ -4,12 +4,17 @@ import { getAllUsers, updateUser } from "services/api";
 
 import BackBtn from "components/BackBtn/BackBtn";
 import UsersList from "components/UsersList/UsersList";
+import { useLocation } from "react-router";
+import { Link } from "react-router-dom";
 
 export default function Tweets() {
   const [users, setUsers] = useState([]);
   const [followingMap, setFollowingMap] = useState(
     () => JSON.parse(window.localStorage.getItem("followingMap")) ?? {}
   );
+
+  const location = useLocation();
+  const prevLocation = location.state?.from ?? "/";
 
   const isFollowing = (id) => {
     return followingMap[id] || false;
@@ -70,7 +75,9 @@ export default function Tweets() {
 
   return (
     <div>
-      <BackBtn />
+      <Link state={{ from: location }} to={prevLocation}>
+        <BackBtn />
+      </Link>
       <UsersList
         users={users}
         handleFollowClick={handleFollowClick}
