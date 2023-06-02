@@ -9,6 +9,5 @@ export const getAllUsers = async () => {
 };
 
 export const updateUser = async (user) => {
-  console.log(`🚀 ~ updateUser ~ user:`, user);
   await axios.put(`/users/${user.id}`, user);
 };

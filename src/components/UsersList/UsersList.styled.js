@@ -105,7 +105,7 @@ export const Button = styled.button`
   line-height: 1.22;
   color: #373737;
 
-  background: #ebd8ff;
+  background: ${(props) => (props.isFollowing ? "#5CD3A8" : "#ebd8ff")};
   box-shadow: 0px 3.43693px 3.43693px rgba(0, 0, 0, 0.25);
   border-radius: 10.3108px;
   cursor: pointer;

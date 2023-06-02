@@ -37,7 +37,10 @@ export default function UsersList({ users, handleFollowClick, followingMap }) {
                 <Text>{tweets.toLocaleString()} TWEETS</Text>
                 <Text>{followers.toLocaleString()} FOLLOWERS</Text>
               </TextWrapper>
-              <Button onClick={() => handleFollowClick(id)}>
+              <Button
+                onClick={() => handleFollowClick(id)}
+                isFollowing={isFollowing}
+              >
                 {isFollowing ? "Following" : "Follow"}
               </Button>
             </Wrapper>
