@@ -1,5 +1,9 @@
+// import { useState } from "react";
+
 import LogoGoIT from "images/svg/Logo_GoIT.svg";
 import Background from "images/picture2 1.png";
+
+// import { updateUser } from "services/api";
 
 import {
   Avatar,
@@ -15,10 +19,11 @@ import {
   Wrapper,
 } from "./UsersList.styled";
 
-export default function UsersList({ users }) {
+export default function UsersList({ users, handleFollowClick, followingMap }) {
   return (
     <List>
       {users.map(({ id, user, tweets, followers, avatar }) => {
+        const isFollowing = followingMap[id] || false;
         return (
           <Item key={id}>
             <Logo src={LogoGoIT} alt="Logo GoIT" />
@@ -29,10 +34,12 @@ export default function UsersList({ users }) {
                 <Avatar src={avatar} alt={user} />
               </AvatarWrapper>
               <TextWrapper>
-                <Text>{tweets} TWEETS</Text>
-                <Text>{followers} FOLLOWERS</Text>
+                <Text>{tweets.toLocaleString()} TWEETS</Text>
+                <Text>{followers.toLocaleString()} FOLLOWERS</Text>
               </TextWrapper>
-              <Button>FOLLOW</Button>
+              <Button onClick={() => handleFollowClick(id)}>
+                {isFollowing ? "Following" : "Follow"}
+              </Button>
             </Wrapper>
           </Item>
         );

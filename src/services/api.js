@@ -7,3 +7,8 @@ export const getAllUsers = async () => {
 
   return data;
 };
+
+export const updateUser = async (user) => {
+  console.log(`🚀 ~ updateUser ~ user:`, user);
+  await axios.put(`/users/${user.id}`, user);
+};
