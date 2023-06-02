@@ -7,8 +7,12 @@ export const List = styled.ul`
 `;
 
 export const Item = styled.li`
+  position: relative;
+  z-index: 1;
+
   width: 380px;
   height: 460px;
+  padding: 20px 20px 36px;
 
   background: linear-gradient(
     114.99deg,
@@ -20,15 +24,64 @@ export const Item = styled.li`
   border-radius: 20px;
 `;
 
+export const Logo = styled.img`
+  width: 76px;
+  height: 22px;
+  margin-bottom: 136px;
+`;
+
+export const Image = styled.img`
+  position: absolute;
+  top: 28px;
+  left: 36px;
+  z-index: -1;
+
+  width: 308px;
+`;
+
+export const Row = styled.div`
+  position: absolute;
+  top: 214px;
+  left: 0;
+  z-index: -1;
+
+  width: 380px;
+  height: 8px;
+
+  background: #ebd8ff;
+  box-shadow: 0px 3.43693px 3.43693px rgba(0, 0, 0, 0.06),
+    inset 0px -1.71846px 3.43693px #ae7be3, inset 0px 3.43693px 2.5777px #fbf8ff;
+`;
+
+export const Wrapper = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 26px;
+`;
+
 export const AvatarWrapper = styled.div`
   width: 80px;
   height: 80px;
+
+  box-shadow: 0px 4.39163px 4.39163px rgba(0, 0, 0, 0.06),
+    inset 0px -2.19582px 4.39163px #ae7be3,
+    inset 0px 4.39163px 3.29372px #fbf8ff;
+  border: 8px solid #ebd8ff;
   border-radius: 50%;
 `;
 
 export const Avatar = styled.img`
-  width: 80px;
-  height: 80px;
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+`;
+
+export const TextWrapper = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
 `;
 
 export const Text = styled.p`
