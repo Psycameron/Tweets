@@ -1,17 +1,19 @@
 import { useEffect, useState } from "react";
 
-import { getAllUsers, updateUser } from "services/api";
+import { getAllUsers, getUsers, updateUser } from "services/api";
 
-import BackBtn from "components/BackBtn/BackBtn";
 import UsersList from "components/UsersList/UsersList";
 import { useLocation } from "react-router";
 import { Link } from "react-router-dom";
 
 export default function Tweets() {
+  const [allUsers, setAllUsers] = useState([]);
   const [users, setUsers] = useState([]);
   const [followingMap, setFollowingMap] = useState(
     () => JSON.parse(window.localStorage.getItem("followingMap")) ?? {}
   );
+  const [page, setPage] = useState(1);
+  const [limit, setLimit] = useState(4);
 
   const location = useLocation();
   const prevLocation = location.state?.from ?? "/";
@@ -24,7 +26,7 @@ export default function Tweets() {
     const fetchData = async () => {
       try {
         const data = await getAllUsers();
-        setUsers(data);
+        setAllUsers(data);
       } catch (error) {
         console.error(error);
       }
@@ -32,6 +34,20 @@ export default function Tweets() {
 
     fetchData();
   }, []);
+
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const data = await getUsers(page, limit);
+        setUsers([...users, ...data]);
+      } catch (error) {
+        console.error(error);
+      }
+    };
+
+    fetchData();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [page, limit]);
 
   useEffect(() => {
     localStorage.setItem("followingMap", JSON.stringify(followingMap));
@@ -73,16 +89,25 @@ export default function Tweets() {
     await updateUser(updatedUsers.find((user) => user.id === id));
   };
 
+  const handleLoadMore = () => {
+    setPage(page + 1);
+  };
+
   return (
     <div>
       <Link state={{ from: location }} to={prevLocation}>
-        <BackBtn />
+        <button type="button">Back</button>
       </Link>
       <UsersList
         users={users}
         handleFollowClick={handleFollowClick}
         followingMap={followingMap}
       />
+      {allUsers.length > page * limit && (
+        <button type="button" onClick={handleLoadMore}>
+          Load More
+        </button>
+      )}
     </div>
   );
 }

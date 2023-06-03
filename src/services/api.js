@@ -11,3 +11,10 @@ export const getAllUsers = async () => {
 export const updateUser = async (user) => {
   await axios.put(`/users/${user.id}`, user);
 };
+
+export const getUsers = async (page, limit) => {
+  const params = `/users?page=${page}&limit=${limit}`;
+  const { data } = await axios.get(params);
+
+  return data;
+};
