@@ -10,7 +10,7 @@ export function App() {
     <Routes>
       <Route path="/" element={<SharedLayout />}>
         <Route index element={<Home />} />
-        <Route path="tweets" element={<Tweets />} />
+        <Route path="users" element={<Tweets />} />
       </Route>
       <Route path="*" element={<Home />} />
     </Routes>
