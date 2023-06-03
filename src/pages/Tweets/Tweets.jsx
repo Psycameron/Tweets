@@ -13,7 +13,7 @@ export default function Tweets() {
     () => JSON.parse(window.localStorage.getItem("followingMap")) ?? {}
   );
   const [page, setPage] = useState(1);
-  const [limit, setLimit] = useState(4);
+  const limit = 4;
 
   const location = useLocation();
   const prevLocation = location.state?.from ?? "/";
