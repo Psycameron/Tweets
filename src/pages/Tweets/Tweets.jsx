@@ -5,6 +5,7 @@ import { getAllUsers, getUsers, updateUser } from "services/api";
 import UsersList from "components/UsersList/UsersList";
 import { useLocation } from "react-router";
 import { Link } from "react-router-dom";
+import { BackBtn, LoadMoreBtn } from "./Tweets.styled";
 
 export default function Tweets() {
   const [allUsers, setAllUsers] = useState([]);
@@ -96,7 +97,7 @@ export default function Tweets() {
   return (
     <div>
       <Link state={{ from: location }} to={prevLocation}>
-        <button type="button">Back</button>
+        <BackBtn type="button">Back</BackBtn>
       </Link>
       <UsersList
         users={users}
@@ -104,9 +105,9 @@ export default function Tweets() {
         followingMap={followingMap}
       />
       {allUsers.length > page * limit && (
-        <button type="button" onClick={handleLoadMore}>
+        <LoadMoreBtn type="button" onClick={handleLoadMore}>
           Load More
-        </button>
+        </LoadMoreBtn>
       )}
     </div>
   );

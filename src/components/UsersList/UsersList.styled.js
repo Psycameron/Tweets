@@ -2,8 +2,11 @@ import styled from "styled-components";
 
 export const List = styled.ul`
   display: flex;
+  justify-content: center;
   flex-wrap: wrap;
   gap: 48px;
+
+  margin-bottom: 20px;
 `;
 
 export const Item = styled.li`
@@ -105,8 +108,13 @@ export const Button = styled.button`
   line-height: 1.22;
   color: #373737;
 
-  background: ${(props) => (props.isFollowing ? "#5CD3A8" : "#ebd8ff")};
+  background-color: ${(props) => (props.isFollowing ? "#5CD3A8" : "#ebd8ff")};
   box-shadow: 0px 3.43693px 3.43693px rgba(0, 0, 0, 0.25);
   border-radius: 10.3108px;
   cursor: pointer;
+
+  :hover,
+  :focus {
+    background-color: ${(props) => (props.isFollowing ? "#52bd97" : "#e5d0fc")};
+  }
 `;
