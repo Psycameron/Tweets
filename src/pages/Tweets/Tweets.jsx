@@ -6,10 +6,12 @@ import UsersList from "components/UsersList/UsersList";
 import { useLocation } from "react-router";
 import { Link } from "react-router-dom";
 import { BackBtn, LoadMoreBtn } from "./Tweets.styled";
+import Loader from "components/Loader/Loader";
 
 export default function Tweets() {
   const [allUsers, setAllUsers] = useState([]);
   const [users, setUsers] = useState([]);
+  const [isLoading, setIsLoading] = useState(false);
   const [followingMap, setFollowingMap] = useState(
     () => JSON.parse(window.localStorage.getItem("followingMap")) ?? {}
   );
@@ -24,9 +26,11 @@ export default function Tweets() {
   };
 
   useEffect(() => {
+    setIsLoading(true);
     const fetchData = async () => {
       try {
         const data = await getAllUsers();
+        setIsLoading(false);
         setAllUsers(data);
       } catch (error) {
         console.error(error);
@@ -37,9 +41,11 @@ export default function Tweets() {
   }, []);
 
   useEffect(() => {
+    setIsLoading(true);
     const fetchData = async () => {
       try {
         const data = await getUsers(page, limit);
+        setIsLoading(false);
         setUsers([...users, ...data]);
       } catch (error) {
         console.error(error);
@@ -104,7 +110,8 @@ export default function Tweets() {
         handleFollowClick={handleFollowClick}
         followingMap={followingMap}
       />
-      {allUsers.length > page * limit && (
+      {isLoading && <Loader />}
+      {allUsers.length > page * limit && !isLoading && (
         <LoadMoreBtn type="button" onClick={handleLoadMore}>
           Load More
         </LoadMoreBtn>
