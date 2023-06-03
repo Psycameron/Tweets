@@ -8,7 +8,7 @@ export default function SharedLayout() {
       <Header>
         <Nav>
           <Link to="/">Home</Link>
-          <Link to="/users">Tweets</Link>
+          <Link to="/tweets">Tweets</Link>
         </Nav>
       </Header>
       <Suspense fallback={<div>Loading...</div>}>
