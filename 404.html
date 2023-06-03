@@ -8,7 +8,9 @@
     <script>
         const currentUrl = window.location.href;
 
-        window.location.href = currentUrl.replace(/\/$/, '');
+        const redirectUrl = currentUrl.replace("/users-tweets/tweets", "/users-tweets");
+
+        window.location.href = redirectUrl;
     </script>
 </head>
 
