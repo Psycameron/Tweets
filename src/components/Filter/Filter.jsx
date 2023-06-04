@@ -13,22 +13,22 @@ export default function Filter({ allUsers, onFilterChange }) {
     onFilterChange(selectedOption.value);
   };
 
-  const followingMap = JSON.parse(window.localStorage.getItem("followingMap"));
+  // const followingMap = JSON.parse(window.localStorage.getItem("followingMap"));
 
-  const followingKeys = Object.keys(followingMap);
+  // const followingKeys = Object.keys(followingMap);
 
   if (!allUsers) {
     return;
   }
 
-  const followingUsers = allUsers.filter((user) =>
-    followingKeys.includes(user.id)
-  );
-  //   console.log(`🚀 ~ Filter ~ followingUsers:`, followingUsers);
+  // const followingUsers = allUsers.filter((user) =>
+  //   followingKeys.includes(user.id)
+  // );
+  // //   console.log(`🚀 ~ Filter ~ followingUsers:`, followingUsers);
 
-  const unFollowingUsers = allUsers.filter(
-    (user) => !followingKeys.includes(user.id)
-  );
+  // const unFollowingUsers = allUsers.filter(
+  //   (user) => !followingKeys.includes(user.id)
+  // );
   //   console.log(`🚀 ~ Filter ~ unFollowingUsers:`, unFollowingUsers);
 
   return (

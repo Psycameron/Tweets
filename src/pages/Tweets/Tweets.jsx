@@ -18,6 +18,7 @@ export default function Tweets() {
   );
   const [page, setPage] = useState(1);
   const limit = 4;
+  // eslint-disable-next-line no-unused-vars
   const [filterOption, setFilterOption] = useState("show all");
 
   const location = useLocation();
