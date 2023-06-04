@@ -11,7 +11,7 @@ export default function SharedLayout() {
           <Link to="/tweets">Tweets</Link>
         </Nav>
       </Header>
-      <Suspense fallback={<div>Loading...</div>}>
+      <Suspense>
         <Outlet />
       </Suspense>
     </Container>
