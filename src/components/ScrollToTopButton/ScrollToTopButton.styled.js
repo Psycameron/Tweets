@@ -1,10 +1,9 @@
 import styled from "styled-components";
 
 export const Wrapper = styled.div`
-  display: flex;
-  justify-content: flex-end;
-
-  margin-bottom: 20px;
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
 `;
 
 export const UpBtn = styled.button`
