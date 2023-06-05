@@ -1,0 +1,2 @@
+"use strict";(self.webpackChunkusers_tweets=self.webpackChunkusers_tweets||[]).push([[304],{304:function(e,n,t){t.r(n),t.d(n,{default:function(){return o}});var r,u=t(168),i=t(444).ZP.h1(r||(r=(0,u.Z)(["\n  text-align: center;\n\n  width: 70vw;\n  margin-top: 100px;\n  margin-left: auto;\n  margin-right: auto;\n"]))),s=t(184);function o(){return(0,s.jsx)(i,{children:"Welcome to our new social app! Here you can subscribe to the people you are interested in. Enjoy using it"})}}}]);
+//# sourceMappingURL=304.a5949122.chunk.js.map
