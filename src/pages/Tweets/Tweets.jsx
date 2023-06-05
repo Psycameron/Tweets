@@ -1,12 +1,14 @@
 import { useEffect, useState } from "react";
+import { useLocation } from "react-router";
+import { Link } from "react-router-dom";
 
 import { getAllUsers, getUsers, updateUser } from "services/api";
 
 import UsersList from "components/UsersList/UsersList";
-import { useLocation } from "react-router";
-import { Link } from "react-router-dom";
-import { BackBtn, LoadMoreBtn } from "./Tweets.styled";
 import Loader from "components/Loader/Loader";
+
+import { BackBtn, LoadMoreBtn } from "./Tweets.styled";
+import ScrollToTopButton from "components/ScrollToTopButton/ScrollToTopButton";
 
 export default function Tweets() {
   const [allUsers, setAllUsers] = useState([]);
@@ -116,6 +118,7 @@ export default function Tweets() {
           Load More
         </LoadMoreBtn>
       )}
+      <ScrollToTopButton />
     </div>
   );
 }
