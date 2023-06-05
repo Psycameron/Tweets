@@ -4,9 +4,7 @@ export const BackBtn = styled.button`
   padding: 7px 10px;
   margin-bottom: 20px;
 
-  font-family: "Montserrat";
   font-size: 13px;
-  font-weight: 500;
   border: transparent;
   outline: none;
   border-radius: 6px;

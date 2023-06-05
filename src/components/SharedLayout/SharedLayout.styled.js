@@ -26,9 +26,8 @@ export const Nav = styled.nav`
 `;
 
 export const Link = styled(NavLink)`
-  font-family: "Montserrat";
-
   padding: 8px 16px;
+
   border-radius: 6px;
   text-decoration: none;
   color: #373737;

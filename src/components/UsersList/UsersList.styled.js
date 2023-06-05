@@ -88,9 +88,6 @@ export const TextWrapper = styled.div`
 `;
 
 export const Text = styled.p`
-  font-family: "Montserrat";
-  font-style: normal;
-  font-weight: 500;
   font-size: 20px;
   line-height: 1.2;
 
@@ -101,8 +98,6 @@ export const Button = styled.button`
   width: 196px;
   height: 50px;
 
-  font-family: "Montserrat";
-  font-style: normal;
   font-weight: 600;
   font-size: 18px;
   line-height: 1.22;

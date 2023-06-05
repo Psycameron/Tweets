@@ -7,7 +7,6 @@ import { useLocation } from "react-router";
 import { Link } from "react-router-dom";
 import { BackBtn, LoadMoreBtn } from "./Tweets.styled";
 import Loader from "components/Loader/Loader";
-import Filter from "components/Filter/Filter";
 
 export default function Tweets() {
   const [allUsers, setAllUsers] = useState([]);
@@ -18,8 +17,6 @@ export default function Tweets() {
   );
   const [page, setPage] = useState(1);
   const limit = 4;
-  // eslint-disable-next-line no-unused-vars
-  const [filterOption, setFilterOption] = useState("show all");
 
   const location = useLocation();
   const prevLocation = location.state?.from ?? "/";
@@ -103,16 +100,11 @@ export default function Tweets() {
     setPage(page + 1);
   };
 
-  const handleFilterChange = (selectedOption) => {
-    setFilterOption(selectedOption);
-  };
-
   return (
     <div>
       <Link state={{ from: location }} to={prevLocation}>
         <BackBtn type="button">Back</BackBtn>
       </Link>
-      <Filter allUsers={allUsers} onFilterChange={handleFilterChange} />
       <UsersList
         users={users}
         handleFollowClick={handleFollowClick}
