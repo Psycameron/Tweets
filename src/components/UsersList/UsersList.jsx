@@ -30,8 +30,8 @@ export default function UsersList({ users, handleFollowClick, followingMap }) {
                 <Avatar src={avatar} alt={user} />
               </AvatarWrapper>
               <TextWrapper>
-                <Text>{tweets.toLocaleString()} TWEETS</Text>
-                <Text>{followers.toLocaleString()} FOLLOWERS</Text>
+                <Text>{tweets.toLocaleString("en-US")} TWEETS</Text>
+                <Text>{followers.toLocaleString("en-US")} FOLLOWERS</Text>
               </TextWrapper>
               <Button
                 onClick={() => handleFollowClick(id)}
